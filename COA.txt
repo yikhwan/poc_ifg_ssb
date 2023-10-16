@@ -1,0 +1,161 @@
+select
+edb.pk_composite_key,
+edb.application_name,
+edb.event_model_code,
+edb.event_model_name,
+edb.event_class_code,
+edb.event_class_name,
+edb.event_type_code,
+edb.event_type_name,
+edb.trx_id,
+edb.trx_num,
+edb.entitas, --> segment1
+edb.cabang, --> segment2
+edb.cost_center, --> segment3
+edb.nat_account_efin, --> segment4
+edb.bank_invest, --> segment5
+edb.lob_produk, --> segment6
+edb.channel, --> segment7
+edb.program_kerja, --> segment8
+edb.intercompany, --> segment9
+edb.future1, --> segment10
+edb.future2, --> segment11
+edb.future3, --> segment12
+edb.trx_source_description,
+edb.trx_date,
+edb.gl_date,
+edb.trx_ref_id,
+edb.currency_code,
+edb.exchange_rate_type,
+edb.exchange_date,
+edb.exchange_rate,
+edb.biaya_adm,
+edb.lebih_bayar,
+edb.no_kontrak,
+edb.no_polis,
+edb.produk,
+edb.no_claim,
+edb.bukti_pembayaran,
+edb.bukti_penerimaan,
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT1' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.entitas) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.entitas,'X'
+    ) as SEGMENT1, --> segment1 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT2' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.cabang) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.cabang,'X'
+    ) as SEGMENT2, --> segment2 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT3' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.cost_center) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.cost_center,'X'
+    ) as SEGMENT3, --> segment3 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT4' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.nat_account_efin) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.nat_account_efin,'X'
+    ) as SEGMENT4, --> segment4 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT5' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.bank_invest) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.bank_invest,'X'
+    ) as SEGMENT5, --> segment5 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT6' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.lob_produk) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.lob_produk,'X'
+    ) as SEGMENT6, --> segment6 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT7' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.channel) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.channel,'X'
+    ) as SEGMENT7, --> segment7 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT8' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.program_kerja) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.program_kerja,'X'
+    ) as SEGMENT8, --> segment8 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT9' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.intercompany) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.intercompany,'X'
+    ) as SEGMENT9, --> segment9 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT10' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.future1) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.future1,'X'
+    ) as SEGMENT10, --> segment10 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT11' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.future2) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.future2,'X'
+    ) as SEGMENT11, --> segment11 mapping COA
+COALESCE
+    (
+    select fmv.OUTPUT_VALUE
+    from t_fah_coa_mapping fmv
+    where
+        fmv.SEGMENT_CODE = 'SEGMENT12' --hardcoded by aturan main segmentasi coa
+        and fmv.INPUT_VALUE = TRIM(edb.future3) --ini dari eventdb
+        and fmv.ENABLED_FLAG = 'Y'
+    ,edb.future3,'X'
+    ) as SEGMENT12, --> segment12 mapping COA
+from
+ifg_kafka_eventdb edb
