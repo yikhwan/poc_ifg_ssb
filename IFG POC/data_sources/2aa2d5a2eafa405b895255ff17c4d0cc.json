@@ -1,0 +1,12 @@
+{
+  "id" : "2aa2d5a2eafa405b895255ff17c4d0cc",
+  "name" : "ifg_kafka_source",
+  "type" : "kafka",
+  "properties" : {
+    "brokers" : "ifg-datahub-kafka-corebroker0.ifg-poc.spyl-s00y.cloudera.site:9093,ifg-datahub-kafka-corebroker1.ifg-poc.spyl-s00y.cloudera.site:9093,ifg-datahub-kafka-corebroker2.ifg-poc.spyl-s00y.cloudera.site:9093",
+    "protocol" : "sasl",
+    "mechanism" : "KERBEROS",
+    "ssl.truststore.location" : "/var/lib/cloudera-scm-agent/agent-cert/cm-auto-global_truststore.jks"
+  },
+  "custom_truststore" : false
+}
