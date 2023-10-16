@@ -1,0 +1,6 @@
+insert into ifg_kafka_eventdb
+select
+`application_name`||`event_model_code`||`event_class_code`||`event_type_code`||`trx_id`||`trx_num` as pk_composite_key,
+edb.*
+from
+postgres_cdc_table_event_db_ifgl edb
