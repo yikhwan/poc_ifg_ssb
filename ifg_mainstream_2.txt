@@ -1,0 +1,263 @@
+insert into ifg_kafka_mainstream
+select
+upper(edb.pk_composite_key) as pk_composite_key, -- HEADER ORACLE --
+edb.legal_entity_id as h_legal_entity_id,
+edb.ledger_id as h_ledger_id,
+edb.application_id as h_application_id,
+edb.request_id as h_request_id,
+edb.application_name as h_application_name,
+	tmap.APPLICATION_NAME as h_application_name_ebs,
+edb.event_model_code as h_event_model_code,
+edb.event_model_name as h_event_model_name,
+    tmap.ENTITY_NAME as h_event_model_name_ebs,
+edb.event_class_code as h_event_class_code,
+	tmap.EVET_CLASS_NAME as h_event_class_name,
+edb.event_type_code as h_event_type_code,
+	tmap.EVENT_TYPE_NAME as h_event_type_name,
+edb.trx_id as h_trx_id,
+edb.trx_num as h_trx_num,
+edb.trx_source_description as h_trx_source_description,
+edb.trx_date as h_trx_date,
+edb.gl_date as h_gl_date,
+edb.trx_ref_id as h_trx_ref_id,
+edb.currency_code as h_currency_code,
+edb.exchange_rate_type as h_exchange_rate_type,
+edb.exchange_date as h_exchange_date,
+edb.exchange_rate as h_exchange_rate,
+edb.biaya_adm as h_biaya_adm,
+edb.lebih_bayar as h_lebih_bayar,
+edb.no_kontrak as h_no_kontrak,
+edb.no_polis as h_no_polis,
+edb.produk as h_produk,
+edb.no_claim as h_no_claim,
+edb.bukti_pembayaran as h_bukti_pembayaran,
+edb.bukti_penerimaan as h_bukti_penerimaan,
+edb.attribute7 as h_jenisnya,
+edb.attribute8 as h_bayar_tenor,
+edb.attribute10 as h_cara_bayar,
+edb.attribute11 as h_migrasi,
+edb.attribute13 as h_jenis_klaim,
+edb.attribute14 as h_nama_peserta,
+edb.attribute15 as h_no_desisi,
+edb.attribute16 as h_no_mutasi,
+edb.created_by as h_created_by,
+edb.creation_date as h_creation_date,
+edb.last_updated_by as h_last_updated_by,
+edb.last_update_date as h_last_update_date,
+edb.process_flag as h_process_flag,
+edb.line_number as l_line_number, -- LINES ORACLE --
+edb.line_type as l_line_type,
+edb.applied_to_trx_id as l_applied_to_trx_id,
+edb.applied_to_trx_num as l_applied_to_trx_num,
+edb.entitas as l_entitas_edb, --> segment1
+    COALESCE(v1.OUTPUT_VALUE,edb.entitas,'X') as l_entitas_ebs,
+edb.cabang as l_cabang_edb, --> segment2
+    COALESCE(v2.OUTPUT_VALUE,edb.cabang,'X') as l_cabang_ebs,
+edb.cost_center as l_cost_center_edb, --> segment3
+    COALESCE(v3.OUTPUT_VALUE,edb.cost_center,'X') as l_cost_center_ebs,
+edb.nat_account_efin as l_nat_account_efin_edb, --> segment4
+    COALESCE(v4.OUTPUT_VALUE,edb.nat_account_efin,'X') as l_nat_account_efin_ebs,
+edb.bank_invest as l_bank_invest_edb , --> segment5
+    COALESCE(v5.OUTPUT_VALUE,edb.bank_invest,'X') as l_bank_invest_ebs,
+edb.lob_produk as l_lob_produk_edb, --> segment6
+	COALESCE(v6.OUTPUT_VALUE,edb.lob_produk,'X') as l_lob_produk_ebs,
+edb.channel as l_channel_edb, --> segment7
+    COALESCE(v7.OUTPUT_VALUE,edb.channel,'X') as l_channel_ebs,
+edb.program_kerja as l_program_kerja_edb, --> segment8
+    COALESCE(v8.OUTPUT_VALUE,edb.program_kerja,'X') as l_program_kerja_ebs,
+edb.intercompany as l_intercompany_edb, --> segment9
+    COALESCE(v9.OUTPUT_VALUE,edb.intercompany,'X') as l_intercompany_ebs,
+edb.future1 as l_future1_edb, --> segment10
+    COALESCE(v10.OUTPUT_VALUE,edb.future1,'X') as l_future1_ebs,
+edb.future2 as l_future2_edb, --> segment11
+    COALESCE(v11.OUTPUT_VALUE,edb.future2,'X') as l_future2_ebs,
+edb.future3 as l_future3_edb, --> segment12
+    COALESCE(v12.OUTPUT_VALUE,edb.future3,'X') as l_future3_ebs,
+edb.amount as l_amount,
+edb.base_amount as l_base_amount,
+edb.line_description as l_line_description,
+edb.no_kontrak as l_no_kontrak,
+edb.no_polis as l_no_polis,
+edb.produk as l_produk,
+edb.no_claim as l_no_claim,
+edb.attribute9 as l_jenis_klaim_invest,
+edb.attribute12 as l_nama_bank,
+edb.attribute13 as l_jenis_klaim,
+edb.attribute17 as l_interco,
+edb.attribute18 as l_jns_trans_reasuransi,
+edb.attribute19 as l_sektor_usaha,
+edb.attribute20 as l_sektor_mitra,
+edb.attribute21 as l_wilayah,
+edb.attribute22 as l_kode_rayon,
+edb.attribute23 as l_wni,
+edb.attribute24 as l_attribute24,
+edb.attribute25 as l_attribute25,
+edb.attribute26 as l_attribute26,
+edb.attribute27 as l_attribute27,
+edb.attribute28 as l_attribute28,
+edb.attribute29 as l_attribute29,
+edb.attribute30 as l_attribute30,
+edb.created_by as l_created_by,
+edb.creation_date as l_creation_date,
+edb.last_updated_by as l_last_updated_by,
+edb.last_update_date as l_last_update_date,
+edb.last_update_date as l_etl_date,
+edb.process_flag as l_process_flag,
+	CASE ------------------------------------------------------------- ERROR MESSAGE ----------------------------------
+        WHEN COALESCE(v1.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT1' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v1.OUTPUT_VALUE,'SEGMENT 1 with INPUT_VALUE="' || edb.entitas || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_1,
+	CASE
+        WHEN COALESCE(v2.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT2' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v2.OUTPUT_VALUE,'SEGMENT 2 with INPUT_VALUE="' || edb.cabang || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_2,
+	CASE
+        WHEN COALESCE(v3.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT3' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v3.OUTPUT_VALUE,'SEGMENT 3 with INPUT_VALUE="' || edb.cost_center || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_3,
+	CASE
+        WHEN COALESCE(v4.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT4' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v4.OUTPUT_VALUE,'SEGMENT 4 with INPUT_VALUE="' || edb.nat_account_efin || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_4,
+	CASE
+        WHEN COALESCE(v5.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT5' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v5.OUTPUT_VALUE,'SEGMENT 5 with INPUT_VALUE="' || edb.bank_invest || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_5,
+	CASE
+        WHEN COALESCE(v6.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT6' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v6.OUTPUT_VALUE,'SEGMENT 6 with INPUT_VALUE="' || edb.lob_produk || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_6,
+	CASE
+        WHEN COALESCE(v7.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT7' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v7.OUTPUT_VALUE,'SEGMENT 7 with INPUT_VALUE="' || edb.channel || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_7,
+	CASE
+        WHEN COALESCE(v8.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT8' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v8.OUTPUT_VALUE,'SEGMENT 8 with INPUT_VALUE="' || edb.program_kerja || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_8,
+	CASE
+        WHEN COALESCE(v9.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT9' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v9.OUTPUT_VALUE,'SEGMENT 9 with INPUT_VALUE="' || edb.intercompany || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_9,
+	CASE
+        WHEN COALESCE(v10.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT10' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v10.OUTPUT_VALUE,'SEGMENT 10 with INPUT_VALUE="' || edb.future1 || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_10,
+	CASE
+        WHEN COALESCE(v11.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT11' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v11.OUTPUT_VALUE,'SEGMENT 11 with INPUT_VALUE="' || edb.future2 || '" has NO OUTPUT value. ')
+            END
+    END AS err_message_11,	
+	CASE
+        WHEN COALESCE(v12.OUTPUT_VALUE) IS NULL THEN
+            CASE
+                WHEN (select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT12' and ENABLED_FLAG='Y')>1 THEN
+                COALESCE(v12.OUTPUT_VALUE,'Segment 12 with INPUT_VALUE="' || edb.future3|| '" has no output value. ')
+            END
+    END AS err_message_12,
+	CASE ------------------------------------------------------------- STATUS ----------------------------------------------------------
+        WHEN
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT1' and ENABLED_FLAG='Y')>1 AND v1.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT2' and ENABLED_FLAG='Y')>1 AND v2.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT3' and ENABLED_FLAG='Y')>1 AND v3.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT4' and ENABLED_FLAG='Y')>1 AND v4.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT5' and ENABLED_FLAG='Y')>1 AND v5.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT6' and ENABLED_FLAG='Y')>1 AND v6.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT7' and ENABLED_FLAG='Y')>1 AND v7.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT8' and ENABLED_FLAG='Y')>1 AND v8.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT9' and ENABLED_FLAG='Y')>1 AND v9.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT10' and ENABLED_FLAG='Y')>1 AND v10.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT11' and ENABLED_FLAG='Y')>1 AND v11.OUTPUT_VALUE IS NULL OR
+		(select count(0) from t_fah_coa_mapping where SEGMENT_CODE='SEGMENT12' and ENABLED_FLAG='Y')>1 AND v12.OUTPUT_VALUE IS NULL
+		THEN 'E'
+        ELSE NULL
+	END AS XLA_STATUS
+from
+	t_event_db edb
+left join t_fah_event_mapping_v tmap
+on
+	UPPER(trim(edb.application_name)) = UPPER(trim(tmap.APPLICATION_SHORT_NAME))
+	and UPPER(trim(edb.event_model_code)) = UPPER(trim(tmap.ENTITY_CODE))
+	and UPPER(trim(edb.event_class_code)) = UPPER(trim(tmap.EVENT_CLASS_CODE))
+	and UPPER(trim(edb.event_type_code)) = UPPER(TRIM(tmap.EVENT_TYPE_CODE))
+    and tmap.ENABLED_FLAG = 'Y'
+left join t_fah_coa_mapping v1
+on 
+    UPPER(TRIM(edb.entitas)) = UPPER(TRIM(v1.INPUT_VALUE))
+    and v1.SEGMENT_CODE = 'SEGMENT1' AND v1.ENABLED_FLAG = 'Y'
+left join t_fah_coa_mapping v2
+on 
+    UPPER(TRIM(edb.cabang)) = UPPER(TRIM(v2.INPUT_VALUE))
+    and v2.SEGMENT_CODE = 'SEGMENT2' AND v2.ENABLED_FLAG = 'Y'
+left join t_fah_coa_mapping v3
+on 
+    UPPER(TRIM(edb.cost_center)) = UPPER(TRIM(v3.INPUT_VALUE))
+    and v3.SEGMENT_CODE = 'SEGMENT3' AND v3.ENABLED_FLAG = 'Y'
+left join t_fah_coa_mapping v4
+on 
+    UPPER(TRIM(edb.nat_account_efin)) = UPPER(TRIM(v4.INPUT_VALUE))
+    and v4.SEGMENT_CODE = 'SEGMENT4' AND v4.ENABLED_FLAG = 'Y'    
+left join t_fah_coa_mapping v5
+on 
+    UPPER(TRIM(edb.bank_invest)) = UPPER(TRIM(v5.INPUT_VALUE))
+    and v5.SEGMENT_CODE = 'SEGMENT5' AND v5.ENABLED_FLAG = 'Y'    
+left join t_fah_coa_mapping v6
+on 
+    UPPER(TRIM(edb.lob_produk)) = UPPER(TRIM(v6.INPUT_VALUE))
+    and v6.SEGMENT_CODE = 'SEGMENT6' AND v6.ENABLED_FLAG = 'Y'    
+left join t_fah_coa_mapping v7
+on
+    UPPER(TRIM(edb.channel)) = UPPER(TRIM(v7.INPUT_VALUE))
+    and v7.SEGMENT_CODE = 'SEGMENT7' AND v7.ENABLED_FLAG = 'Y'    
+left join t_fah_coa_mapping v8
+on
+    UPPER(TRIM(edb.program_kerja)) = UPPER(TRIM(v8.INPUT_VALUE))
+    and v8.SEGMENT_CODE = 'SEGMENT8' AND v8.ENABLED_FLAG = 'Y'    
+left join t_fah_coa_mapping v9
+on
+    UPPER(TRIM(edb.intercompany)) = UPPER(TRIM(v9.INPUT_VALUE))
+    and v9.SEGMENT_CODE = 'SEGMENT9' AND v9.ENABLED_FLAG = 'Y'    
+left join t_fah_coa_mapping v10
+on
+    UPPER(TRIM(edb.future1)) = UPPER(TRIM(v10.INPUT_VALUE))
+    and v10.SEGMENT_CODE = 'SEGMENT10' AND v10.ENABLED_FLAG = 'Y'    
+left join t_fah_coa_mapping v11
+on
+    UPPER(TRIM(edb.future2)) = UPPER(TRIM(v11.INPUT_VALUE))
+    and v11.SEGMENT_CODE = 'SEGMENT11' AND v11.ENABLED_FLAG = 'Y'    
+left join t_fah_coa_mapping v12
+on
+    UPPER(TRIM(edb.future3)) = UPPER(TRIM(v12.INPUT_VALUE))
+    and v12.SEGMENT_CODE = 'SEGMENT12' AND v12.ENABLED_FLAG = 'Y'
