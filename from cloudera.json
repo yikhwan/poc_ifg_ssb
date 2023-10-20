@@ -1,0 +1,232 @@
+{
+        "type": "record",
+        "name": "dep",
+        "namespace": "com.cloudera.lps.data",
+        "fields": [
+        {
+        "name": "idpelapor",
+        "type": 
+        "string"
+        },
+		{
+        "name": "periodelaporan",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "periodedata",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "nomorrekening",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+        {
+        "name": "idpihaklawan",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "statusdana",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "fiturtambahan",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "jenisvaluta",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "klasifikasiliabilitaskeuangan",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "lokasikckcp",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "jenissukubunga",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "persentaseimbalanawalkontrak",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "sukubungapersentaseimbalanbulanlaporan",
+        "type": [
+        {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 2
+        },
+        "null"
+        ]
+        },
+		{
+        "name": "sukubungapenjaminanlps",
+        "type": [
+        {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 2
+        },
+        "null"
+        ]
+        },
+		{
+        "name": "metodebagihasil",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "persentasenisbah",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "tanggalmulai",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "tanggaljatuhtempo",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "nominal",
+        "type": [
+        {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 0
+        },
+        "null"
+        ]
+        },
+		{
+        "name": "nominaldiblokir",
+        "type": [
+        {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 0
+        },
+        "null"
+        ]
+        },
+		{
+        "name": "alasandiblokir",
+        "type": [
+        "string",
+        "null"
+        ]
+        },
+		{
+        "name": "jumlahbulanlalu",
+        "type": [
+        {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 0
+        },
+        "null"
+        ]
+        },
+		{
+        "name": "jumlahdebet",
+        "type": [
+        {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 0
+        },
+        "null"
+        ]
+        },
+		{
+        "name": "jumlahkredit",
+        "type": [
+        {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 0
+        },
+        "null"
+        ]
+        },
+		{
+        "name": "jumlahlainnya",
+        "type": [
+        {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 0
+        },
+        "null"
+        ]
+        },
+		{
+        "name": "jumlahbulanlaporan",
+        "type": [
+        {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 0
+        },
+        "null"
+        ]
+        }
+        ]
+        }

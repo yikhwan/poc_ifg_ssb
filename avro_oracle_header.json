@@ -1,0 +1,336 @@
+{
+        "type": "record",
+        "name": "oracle_stream_header",
+        "namespace": "oracle_stream_header",
+        "fields": [
+        {
+        "name": "HDR_ID",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },
+        {
+        "name": "APPLICATION_NAME",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },
+        {
+        "name": "ENTITY_CODE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },
+        {
+        "name": "EVENT_CLASS_CODE",
+        "type":[
+        "string",
+		"null"
+		]
+        },
+        {
+        "name": "EVENT_TYPE_CODE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+        {
+        "name": "TRX_ID",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+        {
+        "name": "TRX_NUM",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+        {
+        "name": "TRX_SOURCE_DESCRIPTION",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+        {
+        "name": "TRX_DATE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+        {
+        "name": "GL_DATE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },			
+        {
+        "name": "TRX_REF_ID",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+        {
+        "name": "CURRENCY_CODE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+       {
+        "name": "EXCHANGE_RATE_TYPE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "EXCHANGE_DATE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },
+		{
+        "name": "EXCHANGE_RATE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "BIAYA_ADM",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "LEBIH_BAYAR",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "NO_KONTRAK",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "NO_POLIS",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "PRODUK",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "NO_CLAIM",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },			
+		{
+        "name": "BUKTI_PEMBAYARAN",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },
+		{
+        "name": "BUKTI_PENERIMAAN",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "JENISNYA",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "BAYAR_TENOR",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "CARA_BAYAR",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "MIGRASI",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "JENIS_KLAIM",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "NAMA_PESERTA",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "NO_DESISI",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "NO_MUTASI",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "LEGAL_ENTITY_ID",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "LEDGER_ID",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "APPLICATION_ID",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "EVENT_ID",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "REQUEST_ID",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },
+		{
+        "name": "CREATED_BY",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "CREATION_DATE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "LAST_UPDATED_BY",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "LAST_UPDATE_DATE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "XLA_STATUS",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },
+		{
+        "name": "ERR_MESSAGE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "CREATED_DATE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "LAST_UPD_DATE",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "ATTRIBUTE24",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },		
+		{
+        "name": "PROCESS_FLAG",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },	
+		{
+        "name": "LEDGER_NAME",
+        "type":[ 
+        "string",
+		"null"
+		]
+        }		
+        ]
+		}

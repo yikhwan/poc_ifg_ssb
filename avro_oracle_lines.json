@@ -1,0 +1,15 @@
+{
+        "type": "record",
+        "name": "oracle_stream_lines",
+        "namespace": "oracle_stream_lines",
+        "fields": [
+        {
+        "name": "HDR_ID",
+        "type":[ 
+        "string",
+		"null"
+		]
+        },
+		
+        ]
+		}

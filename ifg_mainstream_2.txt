@@ -50,29 +50,29 @@ edb.line_type as l_line_type,
 edb.applied_to_trx_id as l_applied_to_trx_id,
 edb.applied_to_trx_num as l_applied_to_trx_num,
 edb.entitas as l_entitas_edb, --> segment1
-    COALESCE(v1.OUTPUT_VALUE,edb.entitas,'X') as l_entitas_ebs,
+    COALESCE(v1.OUTPUT_VALUE,edb.entitas) as l_entitas_ebs,
 edb.cabang as l_cabang_edb, --> segment2
-    COALESCE(v2.OUTPUT_VALUE,edb.cabang,'X') as l_cabang_ebs,
+    COALESCE(v2.OUTPUT_VALUE,edb.cabang) as l_cabang_ebs,
 edb.cost_center as l_cost_center_edb, --> segment3
-    COALESCE(v3.OUTPUT_VALUE,edb.cost_center,'X') as l_cost_center_ebs,
+    COALESCE(v3.OUTPUT_VALUE,edb.cost_center) as l_cost_center_ebs,
 edb.nat_account_efin as l_nat_account_efin_edb, --> segment4
-    COALESCE(v4.OUTPUT_VALUE,edb.nat_account_efin,'X') as l_nat_account_efin_ebs,
+    COALESCE(v4.OUTPUT_VALUE,edb.nat_account_efin) as l_nat_account_efin_ebs,
 edb.bank_invest as l_bank_invest_edb , --> segment5
-    COALESCE(v5.OUTPUT_VALUE,edb.bank_invest,'X') as l_bank_invest_ebs,
+    COALESCE(v5.OUTPUT_VALUE,edb.bank_invest) as l_bank_invest_ebs,
 edb.lob_produk as l_lob_produk_edb, --> segment6
-	COALESCE(v6.OUTPUT_VALUE,edb.lob_produk,'X') as l_lob_produk_ebs,
+	COALESCE(v6.OUTPUT_VALUE,edb.lob_produk) as l_lob_produk_ebs,
 edb.channel as l_channel_edb, --> segment7
-    COALESCE(v7.OUTPUT_VALUE,edb.channel,'X') as l_channel_ebs,
+    COALESCE(v7.OUTPUT_VALUE,edb.channel) as l_channel_ebs,
 edb.program_kerja as l_program_kerja_edb, --> segment8
-    COALESCE(v8.OUTPUT_VALUE,edb.program_kerja,'X') as l_program_kerja_ebs,
+    COALESCE(v8.OUTPUT_VALUE,edb.program_kerja) as l_program_kerja_ebs,
 edb.intercompany as l_intercompany_edb, --> segment9
-    COALESCE(v9.OUTPUT_VALUE,edb.intercompany,'X') as l_intercompany_ebs,
+    COALESCE(v9.OUTPUT_VALUE,edb.intercompany) as l_intercompany_ebs,
 edb.future1 as l_future1_edb, --> segment10
-    COALESCE(v10.OUTPUT_VALUE,edb.future1,'X') as l_future1_ebs,
+    COALESCE(v10.OUTPUT_VALUE,edb.future1) as l_future1_ebs,
 edb.future2 as l_future2_edb, --> segment11
-    COALESCE(v11.OUTPUT_VALUE,edb.future2,'X') as l_future2_ebs,
+    COALESCE(v11.OUTPUT_VALUE,edb.future2) as l_future2_ebs,
 edb.future3 as l_future3_edb, --> segment12
-    COALESCE(v12.OUTPUT_VALUE,edb.future3,'X') as l_future3_ebs,
+    COALESCE(v12.OUTPUT_VALUE,edb.future3) as l_future3_ebs,
 edb.amount as l_amount,
 edb.base_amount as l_base_amount,
 edb.line_description as l_line_description,
