@@ -1,7 +1,7 @@
 {
   "job_name" : "cdc_eventdb",
   "api_endpoints" : [ ],
-  "sql" : "insert into ifg_kafka_eventdb\r\nselect\r\n`application_name`||`event_model_code`||`event_class_code`||`event_type_code`||`trx_id`||`trx_num` as pk_composite_key,\r\nedb.*\r\nfrom\r\npostgres_cdc_table_event_db_ifgl edb",
+  "sql" : "insert into ifg_kafka_eventdb\r\nselect\r\nupper(trim(`application_name`)) || upper(trim(`event_model_code`)) || upper(trim(`event_class_code`)) ||upper(`event_type_code`) || upper(trim(`trx_id`)) || upper(trim(`trx_num`)) as pk_composite_key,\r\nedb.*\r\nfrom\r\npostgres_cdc_table_event_db_ifgl edb",
   "mv_config" : {
     "name" : "cdc_eventdb",
     "retention" : 300,
