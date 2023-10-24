@@ -164,7 +164,7 @@
     "schema.6.data-type" : "VARCHAR(2147483647)",
     "schema.63.data-type" : "VARCHAR(2147483647)",
     "schema.76.data-type" : "VARCHAR(2147483647)",
-    "schema.33.name" : "STRINGercompany",
+    "schema.33.name" : "intercompany",
     "schema.30.name" : "lob_produk",
     "debezium.snapshot.mode" : "initial",
     "schema.36.name" : "future3",
